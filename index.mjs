@@ -1,10 +1,9 @@
-// Assumption: 'graphql' would resolve to this.
-import { run } from './not-graphql';
+import { run } from 'x-core';
 
-import schema from './schema.js';
+import x from 'x-provider';
 
 async function main() {
-  await run(schema);
+  await run(x);
 }
 main().catch(e => {
   process.nextTick(() => { throw e; });
