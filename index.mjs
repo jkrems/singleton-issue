@@ -1,10 +1,10 @@
 // Assumption: 'graphql' would resolve to this.
-import { graphql } from 'graphql/index.mjs';
+import { run } from './not-graphql';
 
 import schema from './schema.js';
 
 async function main() {
-  await graphql(schema, 'query { id }');
+  await run(schema);
 }
 main().catch(e => {
   process.nextTick(() => { throw e; });

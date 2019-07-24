@@ -1,17 +1,5 @@
 'use strict';
 
-const { GraphQLSchema, GraphQLObjectType, GraphQLInt } = require('graphql');
+const X = require('./not-graphql');
 
-module.exports = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'Query',
-    fields: {
-      id: {
-        type: GraphQLInt,
-        resolve() {
-          return 42;
-        },
-      }
-    },
-  }),
-});
+module.exports = new X();
