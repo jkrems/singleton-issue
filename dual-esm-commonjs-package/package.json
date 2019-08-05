@@ -1,13 +1,11 @@
 {
-  "name": "singleton-issue",
+  "name": "dual-esm-commonjs-package",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "schema.js",
   "scripts": {
     "test": "node --experimental-modules --es-module-specifier-resolution=node index.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {}
+  "author": "Jan Krems",
+  "license": "ISC"
 }
