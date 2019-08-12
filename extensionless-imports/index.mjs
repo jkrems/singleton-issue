@@ -1,11 +1,11 @@
 import { deepStrictEqual } from 'assert';
 
-import memoryCache from './store';
+import plugins from './plugins';
 
-import './startup1'; // ESM file
-import './startup2'; // CommonJS file
+import './register-plugin-a'; // ESM file
+import './register-plugin-b'; // CommonJS file
 
-deepStrictEqual(memoryCache, {
-	sawStartup1: true,
-	sawStartup2: true
+deepStrictEqual(plugins, {
+	pluginA: true,
+	pluginB: true
 });
