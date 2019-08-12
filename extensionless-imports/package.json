@@ -1,0 +1,10 @@
+{
+  "name": "extensionless-imports",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node --experimental-modules --es-module-specifier-resolution=node index.mjs"
+  },
+  "author": "Geoffrey Booth",
+  "license": "ISC"
+}
