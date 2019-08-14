@@ -29,4 +29,4 @@ Because the default mode in Node.js 12 is to require explicit file extensions in
 
 ## In the real world
 
-This came up with the `graphql` package under the Node.js 7-11 `--experimental-modules` implementation. You can see discussion of it [here](https://github.com/graphql/graphql-js/issues/1479#issuecomment-416718578).
+This came up with the `graphql` package under the Node.js 7-11 `--experimental-modules` implementation. You can see discussion of it [here](https://github.com/graphql/graphql-js/issues/1479#issuecomment-416718578) and a minimal reproduction [here](https://github.com/Pokute/graphql-esm-bug).
