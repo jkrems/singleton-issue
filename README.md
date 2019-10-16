@@ -9,9 +9,58 @@ This leads to issues when a codebase is a mix of CommonJS and ES module files. E
 
 ## See for yourself
 
-1. Make sure you’re running Node.js 12 or later (but < whatever version `--experimental-modules` is unflagged; as of this writing Node 12.0.0 through 12.8.0).
+1. Make sure you’re running Node.js 12 or later (but < whatever version `--experimental-modules` is unflagged; as of this writing Node 12.0.0 through 12.12.0).
 1. Clone this repo.
 1. Navigate to each subfolder in this repo and run `npm test`.
+
+For `dual-esm-commonjs-package` you should see output like:
+
+```
+> dual-esm-commonjs-package@1.0.0 test /usr/src/app/singleton-issue/dual-esm-commonjs-package
+> node --experimental-modules --es-module-specifier-resolution=node index.mjs
+
+(node:35658) ExperimentalWarning: The ESM module loader is experimental.
+file:///usr/src/app/singleton-issue/dual-esm-commonjs-package/node_modules/x-core/x-core.mjs:9
+    throw new TypeError('Please pass an X!');
+          ^
+
+TypeError: Please pass an X!
+    at run (file:///usr/src/app/singleton-issue/dual-esm-commonjs-package/node_modules/x-core/x-core.mjs:9:11)
+    at file:///usr/src/app/singleton-issue/dual-esm-commonjs-package/index.mjs:5:1
+    at ModuleJob.run (internal/modules/esm/module_job.js:111:37)
+    at async Loader.import (internal/modules/esm/loader.js:134:24)
+npm ERR! Test failed.  See above for more details.
+```
+
+For `extensionless-imports` you should see output like:
+
+```
+> extensionless-imports@1.0.0 test /usr/src/app/singleton-issue/extensionless-imports
+> node --experimental-modules --es-module-specifier-resolution=node index.mjs
+
+(node:55970) ExperimentalWarning: The ESM module loader is experimental.
+internal/modules/cjs/loader.js:992
+      internalBinding('errors').triggerUncaughtException(
+                                ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
+    pluginA: true,
+-   pluginB: true
+  }
+    at file:///usr/src/app/singleton-issue/extensionless-imports/index.mjs:8:1
+    at ModuleJob.run (internal/modules/esm/module_job.js:111:37)
+    at async Loader.import (internal/modules/esm/loader.js:134:24) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual'
+}
+npm ERR! Test failed.  See above for more details.
+```
 
 ## Explanation
 
